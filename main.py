@@ -2,8 +2,6 @@ from fsrcnn import FSRCNN
 import os
 from data_processing import image_mod_crop
 from PIL import Image
-import numpy as np
-
 
 #run export OMP_NUM_THREADS=1 in terminal first berofre run this
 if __name__ == "__main__":
@@ -23,7 +21,7 @@ if __name__ == "__main__":
         s = 12, 
         c = 3,
         m = 4, 
-        upscale_factor = 4, 
+        upscale_factor = 3, 
         num_epochs = 100,
         batch_size = 128,
         layers_lr=1e-3,
@@ -36,9 +34,9 @@ if __name__ == "__main__":
     # start training
     net.train(
         train_deconv_only=True,
-        train_path='/mnt/disk1/big_dataset/h5/train-4x.h5',
-        validation_path='/mnt/disk1/big_dataset/h5/valid-4x.h5',
-        summary_path='./runs/deconv_train-4x'
+        train_path='/mnt/disk1/big_dataset/h5/train-3x.h5',
+        validation_path='/mnt/disk1/big_dataset/h5/valid-3x.h5',
+        summary_path='./runs/deconv_train-3x'
     )
 
     img_path = '/home/kudryavka/programming/python/gitclone/srcnn/data/Set5/butterfly_GT.bmp'

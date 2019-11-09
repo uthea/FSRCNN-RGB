@@ -6,7 +6,6 @@ import numpy as np
 from torch.utils.tensorboard import SummaryWriter
 from math import log10, sqrt
 from data_processing import image_mod_crop
-from skimage.measure import compare_ssim, compare_psnr
 
 class FSRCNN(torch.nn.Module):
 
