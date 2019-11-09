@@ -1,6 +1,5 @@
 from fsrcnn import FSRCNN
 import os
-from data_processing import image_mod_crop
 from PIL import Image
 
 #run export OMP_NUM_THREADS=1 in terminal first berofre run this

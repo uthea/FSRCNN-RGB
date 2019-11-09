@@ -4,8 +4,7 @@ from custom_loader import CustomDataset
 from PIL import Image
 import numpy as np
 from torch.utils.tensorboard import SummaryWriter
-from math import log10, sqrt
-from data_processing import image_mod_crop
+from math import log10
 
 class FSRCNN(torch.nn.Module):
 
