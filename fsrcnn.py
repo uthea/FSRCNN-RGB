@@ -35,12 +35,14 @@ class FSRCNN(torch.nn.Module):
 
         #load state for initial epoch
         self.initial_epoch = 0
-        
-        #initialize model
-        self.init_model(ckpt_mode)
 
         #padding configuration
         self.padding = padding
+
+        #initialize model
+        self.init_model(ckpt_mode)
+
+
 
 
     def save(self, state):
