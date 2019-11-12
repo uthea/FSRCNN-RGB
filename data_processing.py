@@ -5,15 +5,10 @@ from PIL import Image
 
 
 def im2double(image):
+    #convert image range from [0..255] to [1..0] float
     return image.astype(np.float32) / np.iinfo(image.dtype).max
 
-def image_mod_crop(image, scale=3):
-    size = image.shape[0:2] #extract height and width size only
-    size -= np.mod(size, scale) #subtract the size by the remainder between the division of size and scale (to make sure image are divisible by the scale)
-    return image[0:size[0], 0:size[1]] #extract the image with size divisable by the scale
-
-
-def create_dataset(image_dir, output_dir, input_size=33, label_size=21, stride=14, scale=3):
+def create_dataset(image_dir, output_dir, input_size, label_size, stride):
     data = []
     label = []
     counter = 0
@@ -24,10 +19,7 @@ def create_dataset(image_dir, output_dir, input_size=33, label_size=21, stride=1
         for img_file in files:
             #read image and convert it to ndarray
             img = Image.open(image_dir+img_file)
-            img = np.array(img)
-    
-            #create groundtruth image that divisable by scale
-            label_image = image_mod_crop(img)
+            label_image = np.array(img)
 
             #store height and width of cropped groundtruth image
             height = label_image.shape[1]
@@ -75,15 +67,15 @@ def create_dataset(image_dir, output_dir, input_size=33, label_size=21, stride=1
 
 if __name__ == "__main__":
     create_dataset('/home/kudryavka/programming/python/gitclone/srcnn/data/91-image/',
-    "/mnt/disk1/big_dataset/h5/train-3x.h5", input_size=10, label_size=30, scale=0, stride=15
+    "/mnt/disk1/big_dataset/h5/train-3x.h5", input_size=10, label_size=30, stride=15
     )
 
     create_dataset('/mnt/disk1/big_dataset/DVIK/',
-    "/mnt/disk1/big_dataset/h5/40-divk.h5", input_size=10, label_size=30, scale=3, stride=15
+    "/mnt/disk1/big_dataset/h5/40-divk.h5", input_size=10, label_size=30, stride=15
     )
 
     create_dataset('/home/kudryavka/programming/python/gitclone/srcnn/data/Set5/',
-    "/mnt/disk1/big_dataset/h5/valid-3x.h5", input_size=10, label_size=30, scale=3, stride=15
+    "/mnt/disk1/big_dataset/h5/valid-3x.h5", input_size=10, label_size=30, stride=15
     )
 
 
