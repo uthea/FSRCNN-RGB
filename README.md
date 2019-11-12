@@ -7,7 +7,7 @@
 + [Usage](#usage)
 
 ## About <a name = "about"></a>
-FSRCNN is a CNN Architecure used to solve image super resolution problem which is faster and lighter to use than the SRCNN Archicture.
+FSRCNN is a CNN Architecure used to solve image super resolution problem which is faster and lighter to use than the SRCNN.
 
 FSRCNN can also upscale an image for 2x and 3x and still get good result compared to bicubic interpolation.
 
@@ -39,8 +39,8 @@ Parameters of the constructor
 + layers_lr = learning rate for all layers except deconv layer
 + deconv_lr = learning rate for deconv layer
 + ckpt = model checkpoint path
-+ ckpt_mode = the possible values are 'load' and 'resume'
-+ padding = accept a list that consist of 5 numbers for layers padding paramameters, the order is [feature_extraction, shrink, expanding, deconv]
++ ckpt_mode = the possible values are 'load' , 'resume' and 'new'
++ padding = accept a list that consist of 5 numbers for layers padding paramameters, the order is [feature_extraction, shrink, lm, expanding, deconv]
 
 
 ## Training the model
