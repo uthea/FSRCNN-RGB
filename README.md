@@ -19,10 +19,9 @@ FSRCNN can also upscale an image for 2x and 3x and still get good result compare
 
 ## Usage <a name="usage"></a>
 ### Creating dataset
-Use create_dataset function in data_processing.py to create dataset from raw image
+Use create_dataset function in data_processing.py to create dataset from raw image.
 
 Parameters for create_dataset function:
-
 + image_dir = the path folder that contains images to be processed
 + output_dir = path for hd5 file 
 + input_size = size for the input image
@@ -30,10 +29,9 @@ Parameters for create_dataset function:
 + stride = stride for cropping subimage
 
 ## Instatiating FSRCNN object
-Before training or processing an image, create an object
+Before training or processing an image, create an object of FSRCNN class.
 
 Parameters of the constructor
-
 + d, s, c, and m refers to the model hyperparameters (Read this <a href="https://arxiv.org/abs/1608.00367">paper</a>)
 + upscale_factor = stride parameter for ConvolutionalTranspose (deconv layer)
 + num_epoch = number of epoch for a session
@@ -48,9 +46,7 @@ Parameters of the constructor
 ## Training the model
 Run the train method of FSRCNN object to train the model
 
-
 Parameters for train method
-
 + train_deconv_only = freeze all layers except the last layer
 + train_path = path for the h5 training data
 + validation_path = path for the h5 validation data
@@ -59,5 +55,4 @@ Parameters for train method
 
 ## Generating upscaled image
 Run upscaled method of FSRCNN object, it only require the path of input image.
-
 Upscaled output is stored in the current directory with file name "output.png"
