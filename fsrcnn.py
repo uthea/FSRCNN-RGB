@@ -34,7 +34,7 @@ class FSRCNN(torch.nn.Module):
         self.ckpt = ckpt
 
         #load state for initial epoch
-        self.initial_epoch = 0
+        self.initial_epoch = 1
 
         #padding configuration
         self.padding = padding
